@@ -8,8 +8,8 @@ phases:
   pre_build:
     commands:
       - echo "Logging in to Amazon ECR..."
-      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 820183542087.dkr.ecr.$AWS_REGION.amazonaws.com
-      - REPOSITORY_URI=820183542087.dkr.ecr.$AWS_REGION.amazonaws.com/user-post-api-project
+      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin 820183542087.dkr.ecr.us-east-2.amazonaws.com/
+      - REPOSITORY_URI=820183542087.dkr.ecr.us-east-2.amazonaws.com/user-post-api
       - IMAGE_TAG=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
   build:
     commands:
